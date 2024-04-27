@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for hamburger icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .nav-link {
+            color: #000;
+            font-weight: 600;
+            /* Make text bolder */
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: navy;
+        }
+
+        body {
+            background: linear-gradient(90deg, #8e909f 0%, #ffffff 100%);
+            /* Gradient background from left to right with specified colors */
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            /* Adjust as needed */
+            color: #000;
+            /* Black color */
+        }
+
+        .guaranteed-heading {
+            color: crimson;
+            /* Crimson color */
+            margin-top: 2rem;
+            /* Add some space between headings */
+            font-size: 2.5rem;
+            /* Make the heading a bit bigger */
+            font-weight: bold;
+            /* Make the heading bolder */
+            line-height: 1.5;
+            /* Increase line height for more height */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2.5rem;
+            /* Reduced padding */
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: crimson;
+            border: 2px solid black;
+            /* Thin black outline */
+            border-radius: 4rem;
+            /* Rounded corners */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.9);
+            /* Darker shadow */
+            transition: background-color 0.3s ease;
+        }
+
+        .btn2 {
+            display: inline-block;
+            padding: 0.75rem 4.5rem;
+            /* Reduced padding */
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: crimson;
+            border: 2px solid black;
+            /* Thin black outline */
+            border-radius: 4rem;
+            /* Rounded corners */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.9);
+            /* Darker shadow */
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c41919;
+            /* Darker crimson color on hover */
+            border-color: transparent;
+            /* Transparent border color on hover */
+        }
+
+        .marketing-heading {
+            color: #000;
+            /* Black color */
+            margin-top: 3rem;
+            /* Adjust the spacing between the button and this heading */
+            font-size: 3rem;
+            /* Make the heading bigger */
+            font-weight: bold;
+            /* Make the heading bolder */
+            line-height: 1.5;
+            /* Increase line height for more height */
+        }
+
+        .marketing-paragraph {
+            color: #000;
+            /* Black color */
+            margin-top: 3rem;
+            /* Adjust the spacing between the heading and paragraph */
+            font-size: 2.5rem;
+            /* Make the paragraph text size smaller */
+            margin-bottom: 5.5rem;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Semi-transparent black background */
+            z-index: 1000;
+            text-size-adjust: 3rem;
+        }
+
+        .dropdown.active {
+            display: block;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.9);
+            /* Darker shadow */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: crimson;
+        }
+
+        /* Custom styles for mobile screen */
+        @media (max-width: 767px) {
+
+            .btn,
+            .marketing-heading,
+            .marketing-paragraph {
+                font-size: 1.5rem;
+                /* Adjust font sizes for mobile screens */
+            }
+        }
+
+        /* Custom styles for laptop screen */
+        @media (min-width: 768px) {
+            .hero h2 {
+                white-space: nowrap;
+                /* Keep text in one line */
+            }
+        }
+
+        /* Custom styles for mobile screen */
+        @media (max-width: 767px) {
+            .hero h2 {
+                white-space: normal;
+                /* Allow text to break into multiple lines */
+            }
+        }
+
+        /* Additional styles for headings and paragraphs inside boxes */
+        .icon-box {
+            padding: 2rem;
+            border: 2px solid #ccc;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .icon-box h2 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        @media screen and (max-width: 767px) {
+            .btn2 {
+                padding: 0.5rem 2rem;
+                /* Reduced padding for smaller screens */
+                font-size: 1.5rem;
+                /* Reduced font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="bg-white p-6 flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="20240318_142023_0000.webp" alt="Logo"
+                class="h-12 w-12 mr-2"><!-- Make logo place a little bigger -->
+            <h1 class="text-lg font-semibold">TD Marketing</h1>
+        </div>
+        <nav>
+            <!-- Hamburger icon -->
+            <button id="hamburger" class="block lg:hidden text-black">
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
+            <ul class="flex space-x-8 hidden lg:flex"> <!-- Hide the list on small screens -->
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Blog</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link">Stuff</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dropdown menu -->
+    <div id="dropdownMenu" class="dropdown">
+        <div class="dropdown-content">
+            <button class="close-btn">&times;</button>
+            <ul class="flex flex-col">
+                <li class="dropdown-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="dropdown-item"><a href="#" class="nav-link">About</a></li>
+                <li class="dropdown-item"><a href="#" class="nav-link">Blog</a></li>
+                <li class="dropdown-item"><a href="#" class="nav-link">Contact</a></li>
+                <li class="dropdown-item"><a href="#" class="nav-link">Stuff</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Big centered heading -->
+    <div class="hero">
+        <h2 class="text-4xl font-bold">More Growth. More Customers.</h2>
+        <!-- New heading -->
+        <h3 class="guaranteed-heading text-3xl font-bold">Guaranteed.</h3>
+        <!-- Button -->
+        <button class="btn mt-8">YES I WANT THAT!</button>
+        <!-- Additional heading -->
+        <h2 class="marketing-heading">Marketing is important...</h2>
+        <!-- Additional paragraph -->
+        <p class="marketing-paragraph">...But there are already 101 things on your to-do list. <br> And they are all
+            important too!</p>
+        <!-- Additional heading -->
+        <h2 class="marketing-heading ">So How Do You Get Most Out Of Marketing?</h2>
+    </div>
+
+    <!-- Additional icons with headings -->
+    <!-- Additional icons with headings inside boxes -->
+    <section class="text-gray-900 body-font">
+        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+                <div class="icon-box">
+                    <div
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-3">DO YOU WANT TO DO EVERYTHING YOURSELF?
+                    </h2>
+                    <p class="leading-relaxed text-base">No problem if you don't have much to do. But if you're already
+                        busy... Then this is not a feasible option.</p>
+                </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+                <div class="icon-box">
+                    <div
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-3">NEW STAFF?</h2>
+                    <p class="leading-relaxed text-base">Finding good people is difficult, Training is costly. And even
+                        if you find that perfect person... Then you are still dependent on 1 person!</p>
+                </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+                <div class="icon-box">
+                    <div
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                            <path d="M2000 22v-2a4444 4444 0 00-4-4H8a444444444 4 0 00-44 4v "></path>
+
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-3">HIRING AN AGENCY?</h2>
+                    <p class="leading-relaxed text-base">Don't have a marketing budget of tens of thousands of
+                        euros/month? Then it often comes down to your account being managed by the assistant's assistant
+                        intern. Not good.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- New page -->
+    <!-- New page -->
+    <div class="bg-gray-200 py-12">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-8">OK... But what makes you different?</h2>
+            <div class="flex flex-wrap justify-center">
+                <section class="text-gray-600 body-font">
+                    <div class="container px-5 py-24 mx-auto">
+                        <div class="flex flex-wrap -m-4">
+                            <div class="p-4 lg:w-1/2">
+                                <div
+                                    class="h-full bg-white bg-opacity-75 px-8 pt-16 pb-24 overflow-hidden text-center relative shadow-2xl border border-gray-600">
+
+                                    <h1 class="title-font sm:text-2xl text-xl font-bold text-black mb-3">GUARANTEE</h1>
+                                    <p class="leading-relaxed mb-3 font-medium text-black">We only win if you win. That
+                                        is the basis for good <br> cooperation. <br><br> You don't have to bear all the
+                                        risk.</p>
+
+                                    <div
+                                        class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+                                        <span
+                                            class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
+                                        <span
+                                            class="text-gray-400 inline-flex items-center leading-none text-sm"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 lg:w-1/2">
+                                <div
+                                    class="h-full bg-white bg-opacity-75 px-8 pt-16 pb-24 overflow-hidden text-center relative shadow-2xl border border-gray-600">
+
+                                    <h1 class="title-font sm:text-2xl text-xl font-bold text-black mb-3">RESULT</h1>
+                                    <p class="leading-relaxed mb-3 font-medium text-black">Our first priority is to
+                                        achieve results for you as a <br> customer. <br> <br> Less blah blah, more
+                                        results.</p>
+
+                                    <div
+                                        class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+                                        <span
+                                            class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
+                                        <span
+                                            class="text-gray-400 inline-flex items-center leading-none text-sm"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 lg:w-1/2">
+                                <div
+                                    class="h-full bg-white bg-opacity-75 px-8 pt-16 pb-24 overflow-hidden text-center relative shadow-2xl border border-gray-600">
+
+                                    <h1 class="title-font sm:text-2xl text-xl font-bold text-black mb-3">LOCAL</h1>
+                                    <p class="leading-relaxed mb-3 font-medium text-black">We're not tucked away in an
+                                        anonymous call center. <br><br> We work locally, so you know where to find us if
+                                        <br> you need us.
+                                    </p>
+
+
+                                    <div
+                                        class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+                                        <span
+                                            class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
+                                        <span
+                                            class="text-gray-400 inline-flex items-center leading-none text-sm"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 lg:w-1/2">
+                                <div
+                                    class="h-full bg-white bg-opacity-75 px-8 pt-16 pb-24 overflow-hidden text-center relative shadow-2xl border border-gray-600">
+
+                                    <h1 class="title-font sm:text-2xl text-xl font-bold text-black mb-3">SPECIALISATION
+                                    </h1>
+                                    <p class="leading-relaxed mb-3 font-medium text-black">Specialization works.
+                                        Shoemaker, stick to your last. <br><br> That's why we work with industries where
+                                        we know <br> we can achieve results.</p>
+
+                                    <div
+                                        class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+                                        <span
+                                            class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
+                                        <span
+                                            class="text-gray-400 inline-flex items-center leading-none text-sm"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+<!-- Contact Page -->
+<section style="background-color: rgb(68, 70, 73);" class="py-16">
+    <div class="container mx-auto">
+        <h1 class="text-5xl font-bold text-white text-center mb-8">Contact us for a
+            free marketing consultation:</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-white text-center">Do you want to know what we could
+            do for you? Fill out the form and let's get acquainted. No strings attached, no annoying sales pitch,
+            we're both too busy for that. <br><br>
+
+        </p>
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+                <form action="https://api.web3forms.com/submit" method="POST" class="w-full">
+                    <input type="hidden" name="access_key" value="d4cb0626-d548-405e-a942-7b848a16f8d8">
+                <div class="p-2 w-full">
+                    <div class="relative">
+                        <label for="name" class="leading-7 text-sm text-white">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-black focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-md">
+                    </div>
+                </div>
+                <div class="p-2 w-full">
+                    <div class="relative">
+                        <label for="email" class="leading-7 text-sm text-white">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-black focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-md">
+                    </div>
+                </div>
+
+                <div class="p-2 w-full">
+                    <div class="relative">
+                        <label for="company" class="leading-7 text-sm text-white">Company</label>
+                        <input type="text" id="company" name="company"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-black focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-md">
+                    </div>
+                </div>
+
+                <div class="p-2 w-full">
+                    <div class="relative">
+                        <label for="telephone" class="leading-7 text-sm text-white">Telephone</label>
+                        <input type="text" id="telephone" name="telephone"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-black focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-md">
+                    </div>
+                </div>
+
+                <div class="p-2 w-full">
+                    <div class="relative">
+                        <label for="question" class="leading-7 text-sm text-white">Most Important Question</label>
+                        <input type="text" id="question" name="question"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-black focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-md">
+                    </div>
+                </div>
+
+                <div class="p-2 w-full">
+                    <div class="relative">
+                        <label for="message" class="leading-7 text-sm text-white">Message</label>
+                        <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                    </div>
+                </div>
+
+                <div class="p-2 w-full text-center">
+                    <button type="button" class="btn2 mt-8">SEND</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- footer -->
+    <footer class="bg-black py-12 text-white text-center">
+        <h2 class="text-lg font-bold">Cookies & Privacy</h2>
+        <img src="20240318_142023_0000.webp" alt="Logo" class="mx-auto mt-4" style="max-width: 200px;">
+    </footer>
+
+    <!-- Small transparent arrow -->
+    <div id="scroll-to-top" class="fixed bottom-5 left-5 z-50 hidden">
+        <button class="bg-transparent border-none text-white text-3xl">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+
+    <!-- Include Font Awesome for hamburger icon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // Toggle dropdown menu on click
+        hamburger.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('active');
+        });
+
+        // Close dropdown menu on close button click
+        closeBtn.addEventListener('click', () => {
+            dropdownMenu.classList.remove('active');
+        });
+
+
+        // JavaScript to trigger animation on first scroll
+        let animated = false; // Flag to track if animation has been triggered
+
+        window.addEventListener('scroll', () => {
+            if (!animated) {
+                const scrollY = window.scrollY || window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                const scrollPosition = scrollY + windowHeight;
+                const elementOffset = document.querySelector('.icon-box').offsetTop;
+
+                if (scrollPosition > elementOffset) { // Check if the element is in the viewport
+                    // Add animation class to paragraphs and headings inside boxes
+                    const elements = document.querySelectorAll('.icon-box h2, .icon-box p');
+                    elements.forEach(element => {
+                        element.classList.add('animate__animated', 'animate__fadeInUp');
+                    });
+                    animated = true; // Update flag to prevent repeated animations
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const button = document.querySelector('.btn');
+            button.addEventListener('click', function () {
+                const contactSection = document.querySelector('.py-16');
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+
+            });
+        });
+
+
+        // Function to check if the page is scrolled to the top
+        function checkScroll() {
+            const arrow = document.getElementById('scroll-to-top');
+            if (window.scrollY > 0) {
+                arrow.classList.remove('hidden');
+            } else {
+                arrow.classList.add('hidden');
+            }
+        }
+
+        // Function to handle scroll to top on arrow click
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show the arrow when the page is scrolled
+        window.addEventListener('scroll', function () {
+            checkScroll();
+        });
+
+        // Scroll to top when the arrow is clicked
+        document.getElementById('scroll-to-top').addEventListener('click', function () {
+            scrollToTop();
+        });
+
+        // Hide the arrow after 3 seconds of inactivity
+        let timeout;
+        document.addEventListener('scroll', function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                document.getElementById('scroll-to-top').classList.add('hidden');
+            }, 3000);
+        });
+
+
+    </script>
+
+
+    <style>
+        /* Define CSS animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(1);
+            }
+        }
+
+        /* Apply animation to paragraphs and headings inside boxes */
+        .icon-box h2,
+        .icon-box p {
+            animation: slideIn 3.5s ease forwards;
+        }
+
+        /* Define CSS animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(6);
+            }
+        }
+
+        /* Apply animation to paragraphs and headings inside boxes */
+        .icon-box h2,
+        .icon-box p {
+            animation: slideIn 3.5s ease forwards;
+        }
+    </style>
+
+
+</body>
+
+</html>
