@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for hamburger icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Your New Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            background-image: url('https://preview.codeless.co/folie/creative-agency/wp-content/uploads/2017/05/nathan-anderson-84463.jpg'); /* Replace 'your-image.jpg' with your image URL */
+            background-size: cover;
+            background-position: center;
+            max-width: 100vw; /* Limit container to viewport width */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 2rem; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: rgb(149, 149, 149);
+        }
+
+        .social-icons {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: navy;
+        }
+
+        .heading {
+            color: #fff;
+            font-size: 2rem; /* Adjust as needed */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem; /* Adjust as needed */
+        }
+
+        .big-heading {
+            color: #fffefe; /* Change color to black */
+            font-size: calc(0.8rem + 1vw); /* Responsive font size */
+            font-weight: bold;
+            text-align: center;
+            /* margin-top: 2rem;  */
+            max-width: 90%; /* Limit width to prevent overflow */
+            margin-left: 1rem;
+            margin-right: 1rem;
+            background-color: #000;
+            
+        }
+        .yes{
+            color: #ffffff;
+        }
+
+        .logo {
+            max-width: 150px; /* Adjust as needed */
+            position: fixed;
+            /* bottom: 2rem; */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                height: 48vh; /* Change height to 60% of viewport height */
+                background-size: 100% auto; /* Ensure image covers entire width */
+            }
+            .overlay {
+                padding: 1rem;
+            }
+            .heading {
+                margin-top: 6rem;
+                font-size: 1.5rem; /* Adjust as needed */
+            }
+            .menu {
+                margin-bottom: 2rem; /* Adjust as needed */
+                top: 1rem; /* Adjust as needed */
+            }
+            .big-heading {
+                font-size: calc(1rem + 1vw); /* Responsive font size */
+            }
+            .logo {
+                max-width: 60px; /* Adjust as needed */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="overlay">
+            <div class="menu">
+                <a href="Profs.html">Home</a>
+                <a href="#">About</a>
+                <a href="Profs.html#contact">Contact</a>
+            </div>
+            <h1 class="heading">RESULTS TALK</h1>
+            
+            <h3 class="yes">WE will NOT Dissapoint YOU.</h3>
+            
+        </div>
+        <!-- <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div> -->
+    </div>
+    
+    <h2 class="big-heading">"Our unmatched perspicacity coupled with our sheer indefatigability <br> makes us a feared opponent in any realm of human endeavour"</h2>
+
+    <!-- <img class="logo" src="20240318_142023_0000.webp" alt="Your Logo"> -->
+
+    <footer class="bg-black py-1 text-white text-center">
+        <!-- <h2 class="text-lg font-bold">Cookies & Privacy</h2> -->
+        <div class="flex justify-center items-center mt-4 space-x-4">
+            <!-- Facebook Icon -->
+            <a href="https://www.facebook.com/profile.php?id=61557469201532&mibextid=ZbWKwL" class="text-white hover:text-blue-500">
+                <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+            <!-- Instagram Icon -->
+            <a href="https://www.instagram.com/?hl=en" class="text-white hover:text-pink-500">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <!-- Add more social media icons as needed -->
+        </div>
+        <img src="20240318_142023_0000.webp" alt="Logo" class="mx-auto mt-4" style="max-width: 100px;">
+    </footer>
+
+</body>
+
+</html>
